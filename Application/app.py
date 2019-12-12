@@ -1,6 +1,11 @@
 # -----------------------------------------------------------
 # JESSICA TEST APPLICATION
 # DESC: AN ATTEMPT TO TURN A DREAM INTO REALITY
+# GOAL: Making an Ai Virtual assistance which doesnt spies on you
+#       not Exposing/Sending any data from device/program to any services/websites
+#       Please refer to privacy section for details about Data Privacy & Data control
+#       this project is open-source and transparent,
+#       user will be in full control of the program and its Data control
 # Version: 0.0.1-Alpha
 # Copyright © 2019 - Jr Sarath [https://github.com/jrsarath/jessica]
 # -----------------------------------------------------------
@@ -18,16 +23,14 @@ with contextlib.redirect_stdout(None):
 
 # INIT
 print(Fore.GREEN + "Jessica - Version: 0.0.1")
-'''
-tts = pyttsx3.init()
-voices = tts.getProperty('voices')
-print("Available system voices are ")
-for x in range(len(voices)):
-    print(voices[x])
-'''
 
 # FUNCTIONS
 def say(text):
+    '''
+        Jessica uses Google TTS as her voice right now.
+        Might switch to Some device level TTS Engines later on
+        Sadly there's no good natural TTS for Linux is available right now
+    '''
     tts = gTTS(text=text, lang='en-us')
     fp = BytesIO()
     tts.write_to_fp(fp)
@@ -39,6 +42,7 @@ def say(text):
         pygame.time.Clock().tick(10)
 
 say("Hi, I'm Jessica. Nice to meet you!")
+
 
 '''
 # obtain audio from the microphone
