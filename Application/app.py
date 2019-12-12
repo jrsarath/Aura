@@ -1,6 +1,6 @@
 # -----------------------------------------------------------
 # JESSICA TEST APPLICATION
-# DESC: AN ATTEMPT TO A DREAM
+# DESC: AN ATTEMPT TO TURN A DREAM INTO REALITY
 # Version: 0.0.1-Alpha
 # Copyright © 2019 - Jr Sarath [https://github.com/jrsarath/jessica]
 # -----------------------------------------------------------
