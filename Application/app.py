@@ -1,11 +1,11 @@
 # -----------------------------------------------------------
 # JESSICA TEST APPLICATION
 # DESC: AN ATTEMPT TO TURN A DREAM INTO REALITY
-# GOAL: Making an Ai Virtual assistance which doesnt spies on you
+# GOAL: Making an Ai Virtual assistance which doesnt spies on you.
 #       not Exposing/Sending any data from device/program to any services/websites
 #       Please refer to privacy section for details about Data Privacy & Data control
 #       this project is open-source and transparent,
-#       user will be in full control of the program and its Data control
+#       user always will be in full control of the program and its Data control
 # Version: 0.0.1-Alpha
 # Copyright © 2019 - Jr Sarath [https://github.com/jrsarath/jessica]
 # -----------------------------------------------------------
@@ -21,8 +21,8 @@ import contextlib
 with contextlib.redirect_stdout(None):
     import pygame
 
-# INIT
-print(Fore.GREEN + "Jessica - Version: 0.0.1")
+# VARS
+print(Fore.BLUE + "Initiating Jessica")
 
 # FUNCTIONS
 def say(text):
@@ -41,7 +41,9 @@ def say(text):
     while pygame.mixer.music.get_busy():
         pygame.time.Clock().tick(10)
 
-say("Hi, I'm Jessica. Nice to meet you!")
+# INIT
+print(Fore.GREEN + "Jessica - Version: 0.0.1")
+say("Hi, I'm Jessica. Up and Online.")
 
 
 '''
