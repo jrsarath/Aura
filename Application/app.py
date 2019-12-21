@@ -1,5 +1,5 @@
 # -----------------------------------------------------------
-# JESSICA TEST APPLICATION
+# JARVIS TEST APPLICATION
 # DESC: AN ATTEMPT TO TURN A DREAM INTO REALITY
 # GOAL: Making an Ai Virtual assistance which doesnt spies on you.
 #       not Exposing/Sending any data from device/program to any services/websites
@@ -11,40 +11,27 @@
 # -----------------------------------------------------------
 
 # IMPORTS
+# ---- SYSTEM IMPORTS
+import datetime
+import requests
+import json
 from colorama import Fore, Back, Style
+# ---- TTS, SPEECH & SOUND IMPORTS
 import speech_recognition as sr
-from gtts import gTTS
-from io import BytesIO
 from playsound import playsound
-from tempfile import TemporaryFile
-import contextlib
-with contextlib.redirect_stdout(None):
-    import pygame
-
-# VARS
-print(Fore.BLUE + "Initiating Jessica")
-
-# FUNCTIONS
-def say(text):
-    '''
-        Jessica uses Google TTS as her voice right now.
-        Might switch to Some device level TTS Engines later on
-        Sadly there's no good natural TTS for Linux is available right now
-    '''
-    tts = gTTS(text=text, lang='en-us')
-    fp = BytesIO()
-    tts.write_to_fp(fp)
-    fp.seek(0)
-    pygame.mixer.init()
-    pygame.mixer.music.load(fp)
-    pygame.mixer.music.play()
-    while pygame.mixer.music.get_busy():
-        pygame.time.Clock().tick(10)
+# CONFIG IMPORTS
+from Config.config import *
+# CORE IMPORTS
+from Core.speak import *
+# SKILLS IMPORT
+from Skills.Query.weather import *
+from Skills.Query.clock import *
 
 # INIT
-print(Fore.GREEN + "Jessica - Version: 0.0.1")
-say("Hi, I'm Jessica. Up and Online.")
+print(Fore.BLUE + "Initiating JARVIS")
+print(Fore.GREEN + "JARVIS - Version: 0.0.1")
 
+get_time()
 
 '''
 # obtain audio from the microphone
