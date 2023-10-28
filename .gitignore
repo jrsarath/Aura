@@ -1,1 +1,50 @@
 .idea
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.pyc
+*.pyo
+__pycache__
+
+# Environment variables file
+.env
+
+# Virtual environment
+venv/
+env/
+*.pyc
+*.pyo
+
+# Logs
+*.log
+
+# Local development settings
+settings.json
+
+# IDE-specific files and directories
+.vscode/
+.idea/
+
+# Package distribution folder
+dist/
+build/
+*.egg-info/
+
+# Compiled Python files
+*.pyc
+*.pyo
+*.pyd
+
+# Python bytecode cache
+__pycache__/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Compiled extension modules
+__pycache__/
+*.so
+
+# Editor/IDE specific files
+*.sublime-workspace
+*.sublime-project
+*.vscode/
