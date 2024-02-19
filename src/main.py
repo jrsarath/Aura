@@ -1,5 +1,5 @@
 from ai import get_response
-from speech import speak
+# from speech import speak
 
 def conversation_loop():
     while True:
@@ -8,9 +8,9 @@ def conversation_loop():
             print("Exiting the conversation.")
             break
         
-        llm_response = get_response(user_input)
-        speak(llm_response)
-        print("Aura: " + llm_response)
+        response = get_response(user_input)
+        # speak(response)
+        print("AI: " + response)
 
 def main():
     print("Starting conversation...")
