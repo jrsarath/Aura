@@ -15,7 +15,7 @@ from halo import Halo
 
 callback_manager = CallbackManager([StreamingStdOutCallbackHandler()])
 llm = LlamaCpp(
-    model_path="lib/llama-2-7b-chat.gguf",
+    model_path="lib/llama-2-7b-chat.Q6_K.gguf",
     temperature=0.75,
     max_tokens=2000,
     top_p=1,
