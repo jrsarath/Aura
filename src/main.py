@@ -1,5 +1,5 @@
 from ai import get_response
-# from speech import speak
+from speech import speak
 
 def conversation_loop():
     while True:
@@ -9,7 +9,7 @@ def conversation_loop():
             break
         
         response = get_response(user_input)
-        # speak(response)
+        speak(response)
         print("AI: " + response)
 
 def main():

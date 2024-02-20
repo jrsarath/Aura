@@ -34,6 +34,6 @@ chain = LLMChain(llm=model, prompt=prompt_template, memory=memory)
 
 
 def get_response(text):
-    # with Halo(text='Loading', spinner='dots'):
-    response = chain.invoke(input=text)
+    with Halo(text='Loading', spinner='dots'):
+        response = chain.invoke(input=text)
     return response["text"]
