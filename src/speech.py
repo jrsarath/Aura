@@ -26,7 +26,7 @@ def speak(text, output_file=f'{tempfile.gettempdir()}/output-{time.time()}.wav')
     TTS.inference(text, output_wav_file=output_file)
     audio = AudioSegment.from_wav(output_file)
     play(audio)
-    os.remove(output_file) 
+    os.remove(output_file)
     return; 
 
 def init_hotword_listener():
@@ -63,5 +63,4 @@ def listen_for_hotword():
 
 
 if __name__ == "__main__":
-    init_hotword_listener()
-    listen_for_hotword()
+    speak("Hi, how are you")

@@ -18,7 +18,7 @@ llm = LlamaCpp(
     model_path="lib/llama-2-7b-chat.Q6_K.gguf",
     temperature=0.75,
     n_gpu_layers=1,
-    n_batch=1024,
+    n_batch=4096,
     f16_kv=True,
     verbose=False,
 )
@@ -26,8 +26,8 @@ model = Llama2Chat(llm=llm)
 memory = ConversationBufferMemory(memory_key="chat_history", return_messages=True)
 # Open the file in read mode
 with open('configs/persona.txt', 'r') as file:
-    # Read the entire contents of the file and assign it to a variable
     persona = file.read()
+
 template_messages = [
     SystemMessage(content=persona),
     # MessagesPlaceholder(variable_name="chat_history"),

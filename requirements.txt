@@ -110,7 +110,6 @@ portpicker==1.6.0
 protobuf==4.25.3
 psutil==5.9.8
 pvporcupine==3.0.2
-pvrecorder==1.2.2
 pyasn1==0.5.1
 pyasn1-modules==0.3.0
 PyAudio==0.2.14
