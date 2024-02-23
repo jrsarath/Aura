@@ -1,5 +1,9 @@
+from dotenv import load_dotenv
 from ai import get_response
 from speech import speak
+
+# Load env variables
+load_dotenv()
 
 def conversation_loop():
     while True:
