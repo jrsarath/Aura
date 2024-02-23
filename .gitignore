@@ -24,4 +24,4 @@ egg-info/
 *.sublime-workspace
 *.pydevproject
 .DS_Store
-lib/.DS_Store
+lib/
