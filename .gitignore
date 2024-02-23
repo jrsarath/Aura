@@ -25,3 +25,4 @@ egg-info/
 *.pydevproject
 .DS_Store
 lib/
+.env
