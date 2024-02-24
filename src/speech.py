@@ -1,5 +1,6 @@
 import os
 import time
+import wave
 import struct
 import whisper
 import pyaudio
