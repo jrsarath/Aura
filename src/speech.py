@@ -58,6 +58,7 @@ def speech_recogniztion():
     # obtain audio from the microphone
     r = sr.Recognizer()
     with sr.Microphone() as source:
+        r.adjust_for_ambient_noise(source)
         print("Listening...")
         audio = r.listen(source)
     print("Transcribing...")
