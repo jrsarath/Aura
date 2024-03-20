@@ -13,7 +13,6 @@ from langchain.prompts.chat import (
 from langchain.schema import SystemMessage
 from halo import Halo
 
-callback_manager = CallbackManager([StreamingStdOutCallbackHandler()])
 llm = LlamaCpp(
     model_path="lib/llama-2-7b-chat.Q4_K.gguf",
     temperature=0.75,
@@ -40,3 +39,12 @@ def get_response(text):
     with Halo(text='Loading', spinner='dots'):
         response = chain.invoke(input=text)
     return response["text"]
+
+def converse():
+    text = input(">>>")
+    return get_response(text)
+
+if __name__ == "__main__":
+    while True:
+        response = converse()
+        print(response)
