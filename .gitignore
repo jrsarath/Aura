@@ -26,3 +26,4 @@ egg-info/
 .DS_Store
 lib/
 .env
+dashboard/node_modules
