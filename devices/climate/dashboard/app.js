@@ -16,7 +16,7 @@ setInterval(() => {
     .then((result) => {
       document.getElementById("temperature").innerHTML = `${
         result.temperature?.toFixed(2) || 0
-      }&deg;`;
+      }<span>&deg; Celsius</span>`;
       document.getElementById("humidity").innerHTML = `${
         result.humidity?.toFixed(2) || 0
       }%`;

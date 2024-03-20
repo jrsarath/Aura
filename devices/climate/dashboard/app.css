@@ -177,14 +177,27 @@ body {
 }
 .home .sections .section .section-content .cards .card.primary {
     margin: 0;
+    border: solid 0px transparent;
     background-image: linear-gradient(to right bottom, #5d2dfb, #6f3efc, #7e4efd, #8c5dfd, #996bfe);
+    box-shadow: 0 0 10px 5px rgba(93, 45, 251, 0.2);
+    justify-content: center;
 }
 .home .sections .section .section-content .cards .card.primary .card-title {
     color: #eeeeee;
+    position: absolute;
+    top: 15px;
+    left: 15px;
 }
 .home .sections .section .section-content .cards .card.primary .card-content {
     font-size: 150px;
     color: var(--color-primary-0);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+.home .sections .section .section-content .cards .card.primary .card-content span {
+    font-size: 30px;
+    font-weight: 500;
 }
 .home .sections .section .section-content .cards .card .card-content {
     color: var(--color-primary-500);
