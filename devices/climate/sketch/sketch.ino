@@ -195,7 +195,7 @@ void handleAdminRoute(AsyncWebServerRequest *request){
         <script>
           let isAuthenticated=!1;const username="admin";const password="password";document.addEventListener("DOMContentLoaded",()=>{if(isAuthenticated){document.getElementById("login").classList.remove("active");document.getElementById("home").classList.add("active")}});setInterval(()=>{fetch("/").then((e)=>e.json()).then((result)=>{document.getElementById("temperature").innerHTML=`${
         result.temperature?.toFixed(2) || 0
-      }<span>&deg; Celsius</span>`;document.getElementById("humidity").innerHTML=`${
+ "     }<span>&deg; Celsius</span>`;document.getElementById("humidity").innerHTML=`${
         result.humidity?.toFixed(2) || 0
       }%`;document.getElementById("aqi").innerHTML=result.aqi?.toFixed(2)||0})},1000);document.getElementById("login-form").addEventListener("submit",(e)=>{e.preventDefault();const username_value=document.getElementById("username").value;const password_value=document.getElementById("password").value;if(username_value===username&&password_value===password){document.getElementById("login").classList.remove("active");document.getElementById("home").classList.add("active")}});document.getElementById("updater-btn").addEventListener("click",(e)=>{document.getElementById("updater-btn").disabled=!0})
         </script>
@@ -211,7 +211,7 @@ void notFound(AsyncWebServerRequest *request){
   doc["message"] = "route not found";
   serializeJson(doc, response);
   request->send(404, "application/json; charset=utf8", response);
-}#include "DHT.h"
+}"#include "DHT.h"
 #include <WiFi.h>
 #include <Arduino.h>
 #include <AsyncTCP.h>
