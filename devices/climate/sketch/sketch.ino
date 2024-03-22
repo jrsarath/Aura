@@ -1,9 +1,12 @@
 #include "DHT.h"
 #include <WiFi.h>
+#include <Wire.h>
 #include <Arduino.h>
 #include <AsyncTCP.h>
-#include <ESPAsyncWebServer.h>
 #include <ArduinoJson.h>
+#include "Adafruit_SGP40.h"
+#include <ESPAsyncWebServer.h>
+
 
 float firmware_version = 1.0;
 const char* ssid = "Aura-IOT";
@@ -17,12 +20,18 @@ AsyncWebServer server(80);
 #define DHTTYPE DHT22
 #define DHTPIN 13
 DHT dht(DHTPIN, DHTTYPE);
+Adafruit_SGP40 sgp;
 
 void setup() {
+  pinMode(LED_BUILTIN, OUTPUT);
   Serial.begin(115200);
   delay(100);
 
-  dht.begin();              
+  dht.begin();
+  if (!sgp.begin()){
+    Serial.println("SGP40 Sensor not found");
+    while (1);
+  }           
 
   if (!WiFi.config(local_IP, gateway, subnet)) {
     Serial.println("STA Failed to configure");
@@ -53,6 +62,7 @@ void setup() {
 
   server.begin();
   Serial.println("HTTP server started");
+  digitalWrite(LED_BUILTIN, HIGH);
 }
 
 void loop() {
@@ -61,7 +71,7 @@ void loop() {
 void handleRootRoute(AsyncWebServerRequest *request) {
   float temperature = dht.readTemperature();
   float humidity = dht.readHumidity();
-  float aqi = 0.0 / 0.0;
+  uint16_t aqi = sgp.measureVocIndex(temperature, humidity);
   String response;
   JsonDocument doc;
   doc["temperature"] = isnan(temperature) ? 0 : temperature;
@@ -87,7 +97,9 @@ void handleHumidityRoute(AsyncWebServerRequest *request) {
   request->send(200, "application/json; charset=utf8", response);
 }
 void handleAQIRoute(AsyncWebServerRequest *request) {
-  float aqi = 0.0 / 0.0;
+  float temperature = dht.readTemperature();
+  float humidity = dht.readHumidity();
+  uint16_t aqi = sgp.measureVocIndex(temperature, humidity);
   String response;
   JsonDocument doc;
   doc["aqi"] = isnan(aqi) ? 0 : aqi;
