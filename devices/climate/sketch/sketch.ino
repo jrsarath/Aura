@@ -23,23 +23,27 @@ DHT dht(DHTPIN, DHTTYPE);
 Adafruit_SGP40 sgp;
 
 void setup() {
-  pinMode(LED_BUILTIN, OUTPUT);
   Serial.begin(115200);
   delay(100);
 
-  dht.begin();
-  if (!sgp.begin()){
-    Serial.println("SGP40 Sensor not found");
-    while (1);
-  }           
-
+  setupPins();
+  setupSensors();
   setupWiFi();
   setupServer();
 }
 
 void loop() {
 }
-
+void setupPins() {
+  pinMode(LED_BUILTIN, OUTPUT);
+}
+void setupSensors() {
+  dht.begin();
+  if (!sgp.begin()){
+    Serial.println("SGP40 Sensor not found");
+    while (1);
+  } 
+}
 void setupWiFi() {
   WiFi.config(local_IP, gateway, subnet);
   WiFi.setHostname(hostname.c_str());
