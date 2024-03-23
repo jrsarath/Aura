@@ -11,7 +11,7 @@
 float firmware_version = 1.0;
 const char* ssid = "Aura-IOT";
 const char* password = "9836321824";
-String hostname = "Aura-Climate#01";
+String hostname = "Aura Climate-01";
 IPAddress local_IP(192, 168, 0, 201);
 IPAddress gateway(192, 168, 0, 1);
 IPAddress subnet(255, 255, 255, 0);
@@ -33,14 +33,21 @@ void setup() {
     while (1);
   }           
 
-  if (!WiFi.config(local_IP, gateway, subnet)) {
-    Serial.println("STA Failed to configure");
-  }
+  setupWiFi();
+  setupServer();
+}
+
+void loop() {
+}
+
+void setupWiFi() {
+  WiFi.config(local_IP, gateway, subnet);
+  WiFi.setHostname(hostname.c_str());
+  WiFi.mode(WIFI_STA);
 
   Serial.print("Connecting to: ");
   Serial.println(ssid);
 
-  WiFi.setHostname(hostname.c_str());
   WiFi.begin(ssid, password);
 
   while (WiFi.status() != WL_CONNECTED) {
@@ -52,7 +59,8 @@ void setup() {
   Serial.println("WiFi connected");
   Serial.print("Got IP: ");
   Serial.println(WiFi.localIP());
-
+}
+void setupServer() {
   server.on("/", HTTP_GET, handleRootRoute);
   server.on("/temperature", HTTP_GET, handleTemperatureRoute);
   server.on("/humidity", HTTP_GET, handleHumidityRoute);
@@ -64,10 +72,6 @@ void setup() {
   Serial.println("HTTP server started");
   digitalWrite(LED_BUILTIN, HIGH);
 }
-
-void loop() {
-}
-
 void handleRootRoute(AsyncWebServerRequest *request) {
   float temperature = dht.readTemperature();
   float humidity = dht.readHumidity();
