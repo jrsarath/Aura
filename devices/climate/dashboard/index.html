@@ -5,13 +5,16 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <style>
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+    </style>
+    <style>
       html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;font-size:100%;vertical-align:baseline}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:"";content:none}table{border-collapse:collapse;border-spacing:0}
     </style>
     <link rel="stylesheet" href="app.css" />
   </head>
   <body>
     <div class="app">
-      <div class="page active" id="login">
+      <div class="page" id="login">
         <div class="login-page">
             <form class="login" id="login-form">
                 <h3>Aura</h3>
@@ -31,63 +34,15 @@
             </form>
         </div>
       </div>
-      <div class="page" id="home">
+      <div class="page active" id="home">
         <div class="home">
-          <div class="header">
-            <div class="header-logo">Aura</div>
-            <div class="header-text">
-              <h2>Climate Control</h2>
-              <h3>V1.0</h3>
+          <div class="main">
+            <div class="header">
+              <h2 class="time" id="clock">00:00NA</h2>
             </div>
           </div>
-          <div class="sections">
-            <div class="section">
-              <h2 class="section-header">Overview</h2>
-              <div class="section-content">
-                <div class="cards">
-                    <div class="cards-column">
-                        <div class="card primary">
-                            <p class="card-title">Temperature</p>
-                            <div class="card-content" id="temperature">
-                                32
-                                <span>&deg; Celsius</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="cards-column">
-                        <div class="card">
-                            <p class="card-title">Humidity</p>
-                            <div class="card-content" id="humidity">90%</div>
-                        </div>
-                        <div class="card">
-                            <p class="card-title">Air Quality</p>
-                            <div class="card-content" id="aqi">120</div>
-                        </div>
-                    </div>
-                </div>
-              </div>
-            </div>
-            <div class="section">
-              <h2 class="section-header">System</h2>
-              <div class="section-content">
-                <ul>
-                  <li>
-                    <span>System Uptime</span>
-                    <span>1.0</span>
-                  </li>
-                  <li>
-                    <span>Current Version</span>
-                    <span>1.0</span>
-                  </li>
-                  <li>
-                    <span>Firmware Update</span>
-                    <button class="btn" id="updater-btn">
-                      Check for Update
-                    </button>
-                  </li>
-                </ul>
-              </div>
-            </div>
+          <div class="sidebar">
+
           </div>
         </div>
       </div>

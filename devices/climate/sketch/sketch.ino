@@ -65,6 +65,7 @@ void setup() {
   digitalWrite(LED_BUILTIN, HIGH);
 }
 
+int counter = 0;
 void loop() {
 }
 
