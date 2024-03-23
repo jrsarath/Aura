@@ -11,7 +11,7 @@
 float firmware_version = 1.0;
 const char* ssid = "Aura-IOT";
 const char* password = "9836321824";
-String hostname = "Aura-SensorsNode";
+String hostname = "Aura-Climate#01";
 IPAddress local_IP(192, 168, 0, 201);
 IPAddress gateway(192, 168, 0, 1);
 IPAddress subnet(255, 255, 255, 0);
@@ -65,7 +65,6 @@ void setup() {
   digitalWrite(LED_BUILTIN, HIGH);
 }
 
-int counter = 0;
 void loop() {
 }
 
