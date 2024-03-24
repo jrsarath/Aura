@@ -30,6 +30,7 @@ void loop() {
 void setupPins() {
   pinMode(LED_BUILTIN, OUTPUT);
   for (const auto& entry : pins) {
+    digitalWrite(entry.second, HIGH);
     pinMode(entry.second, OUTPUT);
   }
 }
@@ -82,9 +83,9 @@ void handleControlRoute(AsyncWebServerRequest *request) {
       String action = request->getParam("action")->value();
       Serial.println(action);
       if (action == "on") {
-        digitalWrite(pin, HIGH);
-      } else if (action == "off") {
         digitalWrite(pin, LOW);
+      } else if (action == "off") {
+        digitalWrite(pin, HIGH);
       }
       doc["code"] = 200;
       doc["message"] = "Switch control completed";
